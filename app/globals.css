@@ -8,3 +8,22 @@
   --hh-accent: #F5F1EC;    /* cream / linen */
   --hh-text: #2E2E2E;      /* dark charcoal */
 }
+
+@theme inline {
+  --font-body: var(--font-inter);
+  --font-heading: var(--font-playfair);
+}
+
+/* Apply fonts globally */
+body {
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+}

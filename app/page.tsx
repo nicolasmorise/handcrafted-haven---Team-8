@@ -5,47 +5,8 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[var(--hh-accent)] text-[var(--hh-text)]">
-      {/* Top Nav */}
-      <header className="bg-[var(--hh-secondary)]">
-        <nav
-          className="mx-auto grid max-w-6xl items-center px-3 py-2"
-          style={{ gridTemplateColumns: "220px 1fr 220px" }}
-          aria-label="Main navigation"
-        >
-
-        {/* Left: brand */}
-        <div className="flex items-center">
-          <Link
-            href="/"
-            className="flex items-center gap-3 text-lg font-semibold tracking-tight text-[var(--hh-text)]"
-          >
-            <Image
-              src="/logo.png"
-              alt="Handcrafted Haven logo"
-              width={75}
-              height={75}
-              priority
-              className="shrink-0"
-            />
-            <span className="font-[var(--font-display)]">Handcrafted</span>{" "}
-            Haven
-          </Link>
-        </div>
-
-        {/* Center: nav links */}
-        <div className="hidden items-center justify-center gap-8 md:flex">
-          <Link href="/" className="hover:underline">Home</Link>
-          <Link href="/shop" className="hover:underline">Shop</Link>
-          <Link href="/sellers" className="hover:underline">Sellers</Link>
-        </div>
-
-        {/* Right: spacer (empty) */}
-        <div />
-
-        </nav>
-      </header>
-
+      <div className="min-h-screen bg-[var(--hh-accent)] text-[var(--hh-text)]">
+      
       {/* Main */}
       <main className="mx-auto max-w-6xl px-6 py-5">
         {/* Hero */}
@@ -109,31 +70,6 @@ export default function Home() {
           </Link>
         </section>
 
-        {/* Footer */}
-        <footer
-          className="
-            mt-16
-            bg-[var(--hh-secondary)]
-            py-8
-            text-sm
-            text-[var(--hh-text)]
-            border-2 border-black/70
-          "
-        >
-          <div className="mx-auto max-w-6xl px-6">
-            <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
-              <p className="text-black/85">
-                © {new Date().getFullYear()} Handcrafted Haven
-              </p>
-              <p>
-                <span className="font-mono">WDD-430</span> /{" "}
-                <span className="font-mono">BYU-I</span> /{" "}
-                <span className="font-mono">Term 1</span> /{" "}
-                <span className="font-mono">Team 08</span>
-              </p>
-            </div>
-          </div>
-        </footer>
       </main>
     </div>
   );
