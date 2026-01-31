@@ -14,7 +14,7 @@ export default function Home() {
           {/* Hero Image */}
           <div className="relative w-full overflow-hidden rounded-2xl shadow-sm h-[260px] sm:h-[340px] md:h-[440px] lg:h-[480px]">
             <Image
-              src="/havenhero.png"
+              src="/havenhero.webp"
               alt="Artisans showcasing handcrafted goods"
               fill
               priority
