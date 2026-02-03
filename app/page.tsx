@@ -39,7 +39,7 @@ export default function Home() {
         {/* Big Click Boxes */}
         <section className="mt-7 grid gap-6 md:grid-cols-2">
           <Link
-            href="/shop"
+            href="/products"
             className="group rounded-2xl border border-black/5 bg-[#EFE4D2] p-8 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
           >
             <h2 className="font-[var(--font-display)] text-2xl">
