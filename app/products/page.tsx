@@ -23,7 +23,7 @@ export default async function ProductsPage() {
     LIMIT 28;
   `);
 
-  const products = result.rows;
+  const products: ProductRow[] = result.rows;
 
   return (
     <main className="mx-auto max-w-7xl px-4 py-12">

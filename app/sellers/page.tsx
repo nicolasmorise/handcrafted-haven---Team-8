@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { pool } from "@/lib/db";
 
 type SellerRow = {
@@ -22,40 +23,61 @@ export default async function SellersPage() {
     LIMIT 28;
   `);
 
-  const sellers: SellerRow[] = result.rows;
+  const sellers = result.rows;
 
   return (
-    <main className="mx-auto max-w-7xl px-4 py-12">
+    <main className="mx-auto max-w-7xl px-6 py-12 font-body">
       <section>
-        <h1 className="text-3xl font-bold mb-8">Sellers</h1>
+        <h1 className="mb-10 text-center font-heading text-4xl text-charcoal">
+          Our Artisans
+        </h1>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {sellers.map((s) => (
-            <article
+            <Link
               key={s.id}
-              className="overflow-hidden rounded-lg border bg-white shadow-sm"
+              href={`/sellers/${s.public_id}`}
+              className="
+                group overflow-hidden rounded-md
+                bg-sage
+                border border-[#6f8f6b]
+                transition
+                hover:-translate-y-1 hover:shadow-lg
+              "
             >
-              <div className="relative aspect-square w-full bg-gray-100">
+              {/* Image */}
+              <div className="relative aspect-square bg-[#6f8f6b]">
                 <Image
                   src={s.avatar_url}
                   alt={s.display_name}
                   fill
                   className="object-cover"
-                  sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  sizes="(min-width: 1280px) 25vw,
+                         (min-width: 1024px) 33vw,
+                         (min-width: 640px) 50vw,
+                         100vw"
                 />
               </div>
 
-              <div className="p-4">
-                <h2 className="font-semibold leading-snug">{s.display_name}</h2>
+              {/* Content */}
+              <div className="bg-sage px-4 py-4">
+                <h2 className="font-heading text-lg text-cream">
+                  {s.display_name}
+                </h2>
 
-                <p className="mt-2 text-sm text-gray-700 line-clamp-4">
-                  {s.bio ?? "Bio coming soon."}
+                <p className="mt-2 text-sm text-[#000000] line-clamp-3">
+                  {s.bio ?? "Handcrafted stories coming soon."}
                 </p>
+
+                <span className="mt-4 inline-block text-xs uppercase tracking-wide text-cream opacity-80 group-hover:underline">
+                  View profile →
+                </span>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       </section>
     </main>
   );
 }
+
