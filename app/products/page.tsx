@@ -64,7 +64,7 @@ export default async function ProductsPage({
   [query, category, PAGE_SIZE, offset]
   );
 
-  const products = result.rows;
+  const products: ProductRow[] = result.rows;
 
   const countResult = await pool.query<{ count: string }>(
     `

@@ -30,9 +30,11 @@ export default async function SellersPage() {
   const sellers = result.rows;
 
   return (
-    <main className="mx-auto max-w-7xl px-4 py-12">
+    <main className="mx-auto max-w-7xl px-6 py-12 font-body">
       <section>
-        <h1 className="text-3xl font-bold mb-8">Sellers</h1>
+        <h1 className="mb-10 text-center font-heading text-4xl text-charcoal">
+          Our Artisans
+        </h1>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           { sellers.map((s) => (
@@ -49,7 +51,10 @@ export default async function SellersPage() {
                   alt={s.display_name}
                   fill
                   className="object-cover"
-                  sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  sizes="(min-width: 1280px) 25vw,
+                         (min-width: 1024px) 33vw,
+                         (min-width: 640px) 50vw,
+                         100vw"
                 />
               </div>
 
@@ -70,3 +75,4 @@ export default async function SellersPage() {
     </main>
   );
 }
+

@@ -2,7 +2,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import "./global.css"; // changed from "globals.css" in the file path
-import Header from "./ui/Header"
+import HeaderShell from "./ui/HeaderShell";
 import Footer from "./ui/Footer"
 
 
@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
       <body className="font-[var(--font-body)]">
-        <Header />
+        <HeaderShell />
         {children}
         <Footer />
       </body>
