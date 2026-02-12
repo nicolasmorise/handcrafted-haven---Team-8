@@ -35,8 +35,8 @@ export default function ReviewForm({ productId, existing }: Props) {
         throw new Error(data?.error ?? "Failed to save review.");
       }
 
-      // simplest: refresh page to show updated review list
-      window.location.reload();
+      // show updated review list
+      window.location.href = `/products/${productId}#reviews`;
     } catch (err) {
       setError(err instanceof Error ? err.message : "Unknown error");
     } finally {
