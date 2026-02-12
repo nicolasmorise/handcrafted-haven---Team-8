@@ -59,7 +59,7 @@ export default function Header({ user }: Props) {
                 <Link href="/login" className="hover:underline">
                   Sign in
                 </Link>
-                <span>or</span>
+                <span>|</span>
                 <Link href="/register" className="hover:underline">
                   Register
                 </Link>
@@ -67,13 +67,19 @@ export default function Header({ user }: Props) {
             )}
 
             {user && !isSeller && (
-              <button
-                type="button"
-                onClick={handleLogout}
-                className="rounded-full bg-white/10 px-4 py-1 text-sm font-medium hover:bg-white/20"
-              >
-                Logout
-              </button>
+              <div className="flex items-center gap-3">
+                <span className="text-sm">
+                  Welcome {user.name ?? "User"}
+                </span>
+
+                <button
+                  type="button"
+                  onClick={handleLogout}
+                  className="rounded-full bg-white/10 px-4 py-1 text-sm font-medium hover:bg-white/20"
+                >
+                  Logout
+                </button>
+              </div>
             )}
 
             {user && isSeller && (
@@ -83,7 +89,7 @@ export default function Header({ user }: Props) {
                   onClick={() => setSellerMenuOpen((open) => !open)}
                   className="flex cursor-pointer items-center gap-2 rounded-full bg-white/10 px-4 py-1 text-sm font-medium hover:bg-white/20"
                 >
-                  <span>{user.name ?? "Seller"}</span>
+                  <span>Welcome {user.name ?? "Seller"}</span>
                   <span className="text-xs">▾</span>
                 </button>
                 {sellerMenuOpen && (

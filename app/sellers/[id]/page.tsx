@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { pool } from "@/lib/db";
 
+
+
 export const dynamic = "force-dynamic";
 
 type Props = {
@@ -29,15 +31,17 @@ export default async function SellerProductsPage({ params }: Props) {
 
   // Load seller (for header card)
   const sellerRes = await pool.query<SellerRow>(
-    `
-    SELECT id, display_name, bio, avatar_url
-    FROM sellers
-    WHERE id = $1
-    `,
-    [id]
-  );
+  `
+  SELECT id, public_id, display_name, bio, avatar_url
+  FROM sellers
+  WHERE id = $1 OR public_id = $1
+  LIMIT 1;
+  `,
+  [id]
+);
 
-  const seller = sellerRes.rows[0];
+
+const seller = sellerRes.rows[0];
 
   if (!seller) {
     return (
@@ -67,7 +71,7 @@ export default async function SellerProductsPage({ params }: Props) {
     WHERE p.seller_id = $1
     ORDER BY p.created_at DESC;
     `,
-    [id]
+    [seller.id]
   );
 
   const products = productsRes.rows;

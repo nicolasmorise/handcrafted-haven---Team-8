@@ -47,9 +47,13 @@ export async function POST(req: NextRequest) {
       [productId, title, priceCents, imageUrl, categoryId, user.seller_id]
     );
 
-    return NextResponse.redirect(
-      new URL(`/sellers/${user.seller_public_id ?? ""}`, req.url)
-    );
+    const dest =
+      user.seller_public_id
+        ? `/sellers/${user.seller_public_id}`
+        : `/sellers/${user.seller_id}`;
+
+return NextResponse.redirect(new URL(dest, req.url));
+
   } catch (error) {
     console.error("Create product error:", error);
     return NextResponse.json(

@@ -50,7 +50,7 @@ export default async function SellersPage() {
                   src={s.avatar_url}
                   alt={s.display_name}
                   fill
-                  className="object-cover"
+                  className="object-cover [object-position:50%_20%]"
                   sizes="(min-width: 1280px) 25vw,
                          (min-width: 1024px) 33vw,
                          (min-width: 640px) 50vw,
