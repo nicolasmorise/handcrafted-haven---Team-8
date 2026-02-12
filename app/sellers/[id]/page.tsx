@@ -71,7 +71,7 @@ const seller = sellerRes.rows[0];
     WHERE p.seller_id = $1
     ORDER BY p.created_at DESC;
     `,
-    [id]
+    [seller.id]
   );
 
   const products = productsRes.rows;
